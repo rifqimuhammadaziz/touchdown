@@ -22,10 +22,16 @@ struct ContentView: View {
                     .background(Color.white)
                     .shadow(color: Color.black.opacity(0.05), radius: 5)
                 
-                Spacer()
                 
-                FooterView()
-                    .padding(.horizontal)
+                ScrollView(.vertical, showsIndicators: false, content: {
+                    VStack(spacing: 0) {
+                        FeaturedTabView()
+                            .frame(height: UIScreen.main.bounds.width / 1.6)
+                        
+                        FooterView()
+                            .padding(.horizontal)
+                    } //: VSTACK
+                }) //: SCROLL
             } //: VSTACK
             .background(colorBackground.ignoresSafeArea(.all, edges: .all))
         } //: ZSTACK
